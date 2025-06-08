@@ -165,3 +165,61 @@ footer {
         padding: 10px;
     }
 }
+/* ===== CORRECTIONS MOBILE URGENTES ===== */
+@media (max-width: 768px) {
+  /* 1. Réinitialisation du canvas */
+  #sirChart {
+    height: 250px !important;
+    min-height: unset;
+    margin-bottom: 15px;
+  }
+
+  /* 2. Optimisation des contrôles */
+  .control-panel {
+    padding: 12px;
+  }
+  
+  .slider-container {
+    margin-bottom: 10px;
+  }
+
+  /* 3. Correction typographie */
+  body {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  /* 4. Réorganisation du flux */
+  .graph-container {
+    order: 1;
+    margin-bottom: 0;
+  }
+  
+  .control-panel {
+    order: 2;
+    margin-top: 10px;
+  }
+
+  /* 5. Bouton plus visible */
+  .btn {
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  /* 6. Prévention du débordement */
+  .container {
+    padding: 10px;
+    overflow-x: hidden;
+  }
+}
+
+/* ===== CORRECTIONS TOUCH SPECIFIQUES ===== */
+@media (hover: none) {
+  input[type="range"] {
+    height: 30px; /* Meilleure prise en main */
+  }
+  
+  .btn {
+    min-height: 40px; /* Cible tactile agrandie */
+  }
+}
