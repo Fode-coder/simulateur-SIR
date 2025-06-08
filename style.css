@@ -165,61 +165,52 @@ footer {
         padding: 10px;
     }
 }
-/* ===== CORRECTIONS MOBILE URGENTES ===== */
+/* ===== OPTIMISATION COURBE MOBILE ===== */
 @media (max-width: 768px) {
-  /* 1. Réinitialisation du canvas */
-  #sirChart {
-    height: 250px !important;
-    min-height: unset;
-    margin-bottom: 15px;
-  }
-
-  /* 2. Optimisation des contrôles */
-  .control-panel {
-    padding: 12px;
-  }
-  
-  .slider-container {
-    margin-bottom: 10px;
-  }
-
-  /* 3. Correction typographie */
-  body {
-    font-size: 14px;
-    line-height: 1.4;
-  }
-
-  /* 4. Réorganisation du flux */
+  /* 1. Conteneur principal */
   .graph-container {
-    order: 1;
-    margin-bottom: 0;
-  }
-  
-  .control-panel {
-    order: 2;
-    margin-top: 10px;
+    padding: 5px; /* Réduction des marges inutiles */
+    height: auto;
+    min-height: 50vh; /* Utilise 50% de l'écran */
   }
 
-  /* 5. Bouton plus visible */
-  .btn {
-    padding: 10px;
-    font-size: 15px;
+  /* 2. Canvas Chart.js */
+  #sirChart {
+    width: 100% !important;
+    height: 60vh !important; /* Taille dominante */
+    min-height: 300px; /* Garantie minimale */
+    display: block;
   }
 
-  /* 6. Prévention du débordement */
-  .container {
-    padding: 10px;
-    overflow-x: hidden;
+  /* 3. Légendes et axes */
+  #sirChart ~ div {
+    transform: scale(0.9); /* Légères réductions */
+    transform-origin: left top;
+    margin-top: -10px;
+  }
+
+  /* 4. Options spécifiques Chart.js via CSS */
+  .chartjs-render-monitor {
+    touch-action: pan-x; /* Autorise le déplacement horizontal */
+  }
+
+  /* 5. Adaptation texte */
+  .chartjs-tooltip {
+    font-size: 12px !important;
+    padding: 4px !important;
   }
 }
 
-/* ===== CORRECTIONS TOUCH SPECIFIQUES ===== */
-@media (hover: none) {
-  input[type="range"] {
-    height: 30px; /* Meilleure prise en main */
+/* ===== MODE PORTRAIT ===== */
+@media (max-width: 768px) and (orientation: portrait) {
+  #sirChart {
+    height: 55vh !important; /* Ajustement vertical */
   }
-  
-  .btn {
-    min-height: 40px; /* Cible tactile agrandie */
+}
+
+/* ===== MODE PAYSAGE ===== */
+@media (max-width: 768px) and (orientation: landscape) {
+  #sirChart {
+    height: 70vh !important; /* Exploite la largeur */
   }
 }
