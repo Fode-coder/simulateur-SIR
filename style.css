@@ -165,52 +165,53 @@ footer {
         padding: 10px;
     }
 }
-/* ===== OPTIMISATION COURBE MOBILE ===== */
-@media (max-width: 768px) {
-  /* 1. Conteneur principal */
-  .graph-container {
-    padding: 5px; /* Réduction des marges inutiles */
-    height: auto;
-    min-height: 50vh; /* Utilise 50% de l'écran */
-  }
 
-  /* 2. Canvas Chart.js */
-  #sirChart {
-    width: 100% !important;
-    height: 60vh !important; /* Taille dominante */
-    min-height: 300px; /* Garantie minimale */
-    display: block;
-  }
+/* ===== MASQUAGE MOBILE + MESSAGE ===== */
+@media (max-width: 767px) {
 
-  /* 3. Légendes et axes */
-  #sirChart ~ div {
-    transform: scale(0.9); /* Légères réductions */
-    transform-origin: left top;
-    margin-top: -10px;
-  }
+    /* Cache tous les éléments sauf le message */
+    body>*:not(.mobile-message) {
+        display: none !important;
+    }
 
-  /* 4. Options spécifiques Chart.js via CSS */
-  .chartjs-render-monitor {
-    touch-action: pan-x; /* Autorise le déplacement horizontal */
-  }
+    /* Style du message */
+    .mobile-message {
+        display: block !important;
+        height: 100vh;
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #f8f9fa;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-  /* 5. Adaptation texte */
-  .chartjs-tooltip {
-    font-size: 12px !important;
-    padding: 4px !important;
-  }
+    .mobile-message h2 {
+        color: #e74c3c;
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+    }
+
+    .mobile-message p {
+        color: #2c3e50;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        max-width: 400px;
+        margin-bottom: 30px;
+    }
+
+    .mobile-message .icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: #3498db;
+    }
 }
 
-/* ===== MODE PORTRAIT ===== */
-@media (max-width: 768px) and (orientation: portrait) {
-  #sirChart {
-    height: 55vh !important; /* Ajustement vertical */
-  }
-}
-
-/* ===== MODE PAYSAGE ===== */
-@media (max-width: 768px) and (orientation: landscape) {
-  #sirChart {
-    height: 70vh !important; /* Exploite la largeur */
-  }
+/* ===== AFFICHAGE NORMAL (Tablette/Desktop) ===== */
+@media (min-width: 768px) {
+    .mobile-message {
+        display: none !important;
+    }
 }
